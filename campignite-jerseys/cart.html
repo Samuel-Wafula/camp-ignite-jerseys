@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart | Camp Ignite Jerseys</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-flame">🔥</span>
+      <div>
+        <span class="logo-title">Camp Ignite</span>
+        <span class="logo-sub">East Assembly KAG</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Shop</a>
+      <a href="donate.html" class="nav-link donate-btn">❤️ Donate</a>
+      <a href="cart.html" class="nav-link cart-link active">
+        🛒 Cart <span class="cart-badge" id="cart-count">0</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Shop</a>
+    <a href="donate.html">❤️ Donate</a>
+    <a href="cart.html">🛒 Cart</a>
+  </div>
+</nav>
+
+<main class="cart-page">
+  <div class="container">
+    <h1 class="page-title">Your Cart 🛒</h1>
+
+    <div class="cart-layout">
+      <!-- Cart Items -->
+      <div class="cart-items-col">
+        <div id="cart-items-list"></div>
+        <div id="cart-empty" class="cart-empty hidden">
+          <div class="empty-icon">🛒</div>
+          <h3>Your cart is empty</h3>
+          <p>Head back to the shop and grab a jersey!</p>
+          <a href="index.html" class="btn btn-primary">Browse Jerseys</a>
+        </div>
+      </div>
+
+      <!-- Order Summary + M-Pesa Form -->
+      <div class="cart-summary-col" id="cart-summary-col">
+        <div class="summary-box">
+          <h2 class="summary-title">Order Summary</h2>
+          <div id="summary-lines"></div>
+          <div class="summary-total-row">
+            <span>Total</span>
+            <span id="summary-total" class="summary-total-num">KES 0</span>
+          </div>
+        </div>
+
+        <!-- M-Pesa Payment Box -->
+        <div class="mpesa-box">
+          <div class="mpesa-header">
+            <span class="mpesa-logo">📱</span>
+            <div>
+              <div class="mpesa-title">Pay via M-Pesa</div>
+              <div class="mpesa-sub">Manual confirmation — easy & secure</div>
+            </div>
+          </div>
+
+          <div class="mpesa-instructions">
+            <p id="mpesa-instruction-text">Loading payment info…</p>
+          </div>
+
+          <div class="mpesa-numbers" id="mpesa-numbers">
+            <!-- Filled by JS from data.js -->
+          </div>
+
+          <div class="mpesa-steps">
+            <div class="mpesa-step"><span class="mstep-num">1</span> Go to M-Pesa on your phone</div>
+            <div class="mpesa-step"><span class="mstep-num">2</span> Send money to the number <strong>OR</strong> Lipa na M-Pesa → Buy Goods → Till Number</div>
+            <div class="mpesa-step"><span class="mstep-num">3</span> Copy the SMS confirmation code you receive</div>
+            <div class="mpesa-step"><span class="mstep-num">4</span> Paste it in the form below and submit</div>
+          </div>
+        </div>
+
+        <!-- Order Form (Netlify) -->
+        <div class="order-form-box" id="order-form-box">
+          <h3 class="form-title">Complete Your Order</h3>
+          <form name="jersey-order" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="order-form">
+            <input type="hidden" name="form-name" value="jersey-order" />
+            <input type="hidden" name="order-items" id="hidden-items" />
+            <input type="hidden" name="order-total" id="hidden-total" />
+            <p class="hidden"><label>Don't fill this: <input name="bot-field" /></label></p>
+
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="full-name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="07XX XXX XXX" required />
+            </div>
+            <div class="form-group">
+              <label>Pick-up / Delivery Notes</label>
+              <input type="text" name="delivery" placeholder="e.g. Church pickup, or your location" />
+            </div>
+            <div class="form-group">
+              <label>M-Pesa Confirmation Code or Full Message <span class="required">*</span></label>
+              <textarea name="mpesa-code" id="mpesa-code" rows="4"
+                placeholder="Paste your M-Pesa confirmation SMS here e.g. &#10;QA12BCD34E Confirmed. KES 1,800 sent to EAST ASSEMBLY KAG on 9/6/25 at 10:30 AM. New M-PESA balance is KES XXXX."
+                required></textarea>
+              <div class="mpesa-tip">💡 Paste the full SMS from M-Pesa for fastest verification</div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+              🔥 Submit Order
+            </button>
+            <p class="form-note">We'll confirm your order via WhatsApp or call within a few hours.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Success Modal -->
+<div class="modal-overlay hidden" id="success-modal">
+  <div class="modal">
+    <div class="modal-icon">🎉</div>
+    <h2>Order Submitted!</h2>
+    <p>Thank you for supporting <strong>CampIgnite 2025</strong>! We'll verify your M-Pesa payment and confirm your jerseys shortly.</p>
+    <p class="modal-sub">God bless you! 🙏</p>
+    <button class="btn btn-primary" onclick="closeModal()">Done</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-flame">🔥</span>
+      <div>
+        <div class="footer-title">Camp Ignite Jerseys</div>
+        <div class="footer-sub">East Assembly KAG Church</div>
+      </div>
+    </div>
+    <div class="footer-note">All proceeds fund CampIgnite 2025</div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>
