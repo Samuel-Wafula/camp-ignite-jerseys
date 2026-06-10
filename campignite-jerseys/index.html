@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camp Ignite Jerseys | East Assembly KAG Church</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-svg-wrap">
+        <svg viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+          <!-- Flame icon -->
+          <g transform="translate(4,2)">
+            <path d="M20,44 C10,44 4,36 4,28 C4,20 10,14 14,10 C14,18 18,20 18,20 C18,12 22,6 28,2 C26,10 30,16 30,16 C32,10 36,8 38,8 C34,14 36,20 36,26 C36,36 30,44 20,44Z" fill="#FF6B2B"/>
+            <path d="M20,42 C14,42 10,36 10,30 C10,24 14,22 16,22 C16,28 20,30 20,30 C20,24 22,20 24,18 C22,24 26,28 26,32 C26,38 24,42 20,42Z" fill="#FFD700"/>
+          </g>
+          <!-- CAMP IGNITE text -->
+          <text x="52" y="28" font-family="'Oswald', Impact, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="2">CAMP IGNITE</text>
+          <!-- Subtext -->
+          <text x="53" y="42" font-family="'Inter', Arial, sans-serif" font-size="9" fill="#8BA4C0" letter-spacing="1">EAST ASSEMBLY KAG</text>
+        </svg>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Shop</a>
+      <a href="donate.html" class="nav-link donate-btn">❤️ Donate</a>
+      <a href="cart.html" class="nav-link cart-link">
+        🛒 Cart <span class="cart-badge" id="cart-count">0</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Shop</a>
+    <a href="donate.html">❤️ Donate</a>
+    <a href="cart.html">🛒 Cart</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-cross"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">⚽ Official Fundraiser · 2026</div>
+      <h1 class="hero-title">WEAR THE<br><span class="accent">FLAME.</span></h1>
+      <p class="hero-subtitle">
+        Support East Assembly KAG Church's annual <strong>Camp Ignite</strong> camp by grabbing an authentic EPL or World Cup jersey. Every shilling fuels the fire.
+      </p>
+      <div class="hero-actions">
+        <a href="#shop" class="btn btn-primary">Shop Jerseys</a>
+        <button class="btn btn-gold" id="open-register-btn">📋 Register for Camp</button>
+        <a href="donate.html" class="btn btn-outline">Just Donate →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Goes to Camp</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">EPL</span><span class="stat-label">& World Cup</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">M-Pesa</span><span class="stat-label">Easy Checkout</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="jersey-card-hero">
+        <div class="jersey-icon-large">⚽</div>
+        <div class="flame-ring">🔥</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT BAND -->
+<div class="about-band">
+  <p>🙏 <strong>East Assembly KAG Church</strong> — raising funds for <strong>Camp Ignite 2026</strong>. All proceeds go directly to camp logistics, youth programmes, and worship equipment.</p>
+</div>
+
+<!-- SHOP -->
+<section class="shop-section" id="shop">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">The Collection</h2>
+      <p class="section-sub">Authentic quality · Limited stock · All sizes available · KES 1,500 each</p>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All Jerseys</button>
+      <button class="filter-tab" data-filter="epl">🏴󠁧󠁢󠁥󠁮󠁧󠁿 EPL</button>
+      <button class="filter-tab" data-filter="worldcup">🌍 World Cup</button>
+    </div>
+
+    <div class="jersey-grid" id="jersey-grid"></div>
+
+    <!-- Suggest a Jersey -->
+    <div class="suggest-box">
+      <div class="suggest-header">
+        <span class="suggest-icon">💡</span>
+        <div>
+          <h3 class="suggest-title">Don't see your team?</h3>
+          <p class="suggest-sub">Suggest a jersey and we'll do our best to get it for you!</p>
+        </div>
+      </div>
+      <form name="jersey-suggestion" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="suggest-form">
+        <input type="hidden" name="form-name" value="jersey-suggestion" />
+        <p class="hidden"><label>Don't fill: <input name="bot-field" /></label></p>
+        <div class="suggest-fields">
+          <input type="text" name="suggested-team" placeholder="e.g. Real Madrid, Barcelona, PSG…" required class="suggest-input" />
+          <input type="text" name="your-name" placeholder="Your name (optional)" class="suggest-input" />
+          <input type="tel" name="your-phone" placeholder="Phone (optional, for follow-up)" class="suggest-input" />
+          <button type="submit" class="btn btn-primary suggest-btn" id="suggest-submit">Send Suggestion</button>
+        </div>
+        <p class="suggest-note">We'll announce new arrivals on our WhatsApp group.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="container">
+    <h2 class="section-title center" style="color:white">How to Order</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon">👕</div>
+        <h3>1. Pick Your Jersey</h3>
+        <p>Choose your team, size, and add to cart. Mix and match EPL and World Cup kits.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-icon">📱</div>
+        <h3>2. Send via M-Pesa</h3>
+        <p>Pay to our Till Number <strong>3171352</strong> (JOAN NJAU). Full pay or deposit of KES 800.</p>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step">
+        <div class="step-icon">✉️</div>
+        <h3>3. Paste Your Code</h3>
+        <p>Paste the M-Pesa confirmation SMS in the order form. We confirm and deliver!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg" width="160" height="40">
+        <g transform="translate(2,1)">
+          <path d="M16,36 C8,36 3,30 3,23 C3,16 8,11 11,8 C11,14 14,16 14,16 C14,10 17,5 22,2 C21,8 24,13 24,13 C25,8 29,6 31,6 C28,11 29,16 29,21 C29,29 24,36 16,36Z" fill="#FF6B2B"/>
+          <path d="M16,34 C11,34 8,29 8,24 C8,19 11,17 13,18 C13,22 16,24 16,24 C16,19 18,16 19,15 C18,19 21,22 21,26 C21,31 19,34 16,34Z" fill="#FFD700"/>
+        </g>
+        <text x="42" y="22" font-family="'Oswald', Impact, sans-serif" font-size="18" font-weight="700" fill="#F5C518" letter-spacing="1">CAMP IGNITE</text>
+        <text x="43" y="34" font-family="'Inter', Arial, sans-serif" font-size="7" fill="#8BA4C0" letter-spacing="0.5">EAST ASSEMBLY KAG</text>
+      </svg>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="donate.html">Donate</a>
+    </div>
+    <div class="footer-note">Made with ❤️ for Camp Ignite 2026 · All proceeds fund the annual camp</div>
+  </div>
+</footer>
+
+<!-- REGISTER MODAL -->
+<div class="modal-overlay hidden" id="register-modal">
+  <div class="modal register-modal">
+    <button class="modal-close" onclick="document.getElementById('register-modal').classList.add('hidden')">✕</button>
+    <div class="register-hero-text">
+      <div class="register-flame">🔥</div>
+      <h2 class="register-title">You're Invited!</h2>
+      <p class="register-welcome">
+        We would be <em>absolutely thrilled</em> to have you at <strong>Camp Ignite 2026</strong>! This is more than a camp — it's a moment where lives are changed, friendships are forged, and faith comes alive. We'd love for you to be part of it. Kindly register below and we will contact you with all the exciting details!
+      </p>
+    </div>
+    <form name="camp-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="register-form">
+      <input type="hidden" name="form-name" value="camp-registration" />
+      <p class="hidden"><label>Don't fill: <input name="bot-field" /></label></p>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" name="full-name" placeholder="Your full name" required />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="07XX XXX XXX" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-full" id="register-submit-btn">
+        🔥 Register for Camp Ignite 2026
+      </button>
+    </form>
+    <p class="register-note">🙏 God bless you! We'll be in touch soon with all the details.</p>
+  </div>
+</div>
+
+<!-- Register success modal -->
+<div class="modal-overlay hidden" id="register-success-modal">
+  <div class="modal">
+    <div class="modal-icon">🎉</div>
+    <h2>You're Registered!</h2>
+    <p>Thank you for registering for <strong>Camp Ignite 2026</strong>! We are so excited to have you. We'll reach out to you soon with all the details.</p>
+    <p class="modal-sub">God bless you! 🔥🙏</p>
+    <button class="btn btn-primary" onclick="document.getElementById('register-success-modal').classList.add('hidden')">Can't wait!</button>
+  </div>
+</div>
+
+<!-- Suggest success -->
+<div class="modal-overlay hidden" id="suggest-success-modal">
+  <div class="modal">
+    <div class="modal-icon">👕</div>
+    <h2>Suggestion Received!</h2>
+    <p>Thanks! We'll look into getting that jersey. We'll announce new arrivals soon.</p>
+    <button class="btn btn-primary" onclick="document.getElementById('suggest-success-modal').classList.add('hidden')">Awesome!</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate | Camp Ignite 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg" class="logo-svg"><g transform="translate(4,2)"><path d="M20,44 C10,44 4,36 4,28 C4,20 10,14 14,10 C14,18 18,20 18,20 C18,12 22,6 28,2 C26,10 30,16 30,16 C32,10 36,8 38,8 C34,14 36,20 36,26 C36,36 30,44 20,44Z" fill="#FF6B2B"/><path d="M20,42 C14,42 10,36 10,30 C10,24 14,22 16,22 C16,28 20,30 20,30 C20,24 22,20 24,18 C22,24 26,28 26,32 C26,38 24,42 20,42Z" fill="#FFD700"/></g><text x="52" y="28" font-family="Oswald" font-size="24" font-weight="700" fill="#FFFFFF" letter-spacing="2">CAMP IGNITE</text><text x="53" y="42" font-family="Inter" font-size="9" fill="#8BA4C0" letter-spacing="1">EAST ASSEMBLY KAG</text></svg>
+      <div>
+        <span class="logo-title">Camp Ignite</span>
+        <span class="logo-sub">East Assembly KAG</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Shop</a>
+      <a href="donate.html" class="nav-link donate-btn active">❤️ Donate</a>
+      <a href="cart.html" class="nav-link cart-link">
+        🛒 Cart <span class="cart-badge" id="cart-count">0</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Shop</a>
+    <a href="donate.html">❤️ Donate</a>
+    <a href="cart.html">🛒 Cart</a>
+  </div>
+</nav>
+
+<!-- DONATE HERO -->
+<section class="donate-hero">
+  <div class="donate-hero-content">
+    <div class="hero-eyebrow">🙏 Give Generously</div>
+    <h1 class="hero-title">Fuel the<br><span class="accent">Flame.</span></h1>
+    <p class="donate-lead">
+      Camp Ignite is where young people encounter God, build friendships, and grow in faith. Your donation — no matter the size — helps make camp possible for every youth in our congregation.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT YOUR MONEY DOES -->
+<section class="impact-section">
+  <div class="container">
+    <h2 class="section-title center">Your Donation Goes To</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">🏕️</div>
+        <h3>Camp Facilities</h3>
+        <p>Transport, accommodation, meals, and venue costs for the whole team.</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">🎸</div>
+        <h3>Worship & Ministry</h3>
+        <p>Sound equipment, worship band support, and ministry materials.</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📖</div>
+        <h3>Discipleship</h3>
+        <p>Bibles, notebooks, devotionals, and small group resources.</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">🤸</div>
+        <h3>Activities & Fun</h3>
+        <p>Sports, games, team building, and recreational activities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATION AMOUNTS -->
+<section class="donate-section">
+  <div class="container">
+    <div class="donate-layout">
+      <!-- Left: Suggested amounts + M-Pesa -->
+      <div class="donate-left">
+        <h2 class="section-title">Send Any Amount</h2>
+        <p class="donate-sub">Choose a suggested amount or enter your own. Every shilling counts!</p>
+
+        <div class="amount-grid" id="amount-grid">
+          <button class="amount-btn" data-amount="200">KES 200</button>
+          <button class="amount-btn" data-amount="500">KES 500</button>
+          <button class="amount-btn" data-amount="1000">KES 1,000</button>
+          <button class="amount-btn" data-amount="2000">KES 2,000</button>
+          <button class="amount-btn" data-amount="5000">KES 5,000</button>
+          <button class="amount-btn" data-amount="custom">Custom</button>
+        </div>
+
+        <div class="custom-amount-wrap hidden" id="custom-input-wrap">
+          <label>Enter Amount (KES)</label>
+          <input type="number" id="custom-amount" placeholder="e.g. 1500" min="50" />
+        </div>
+
+        <!-- M-Pesa Payment Info -->
+        <div class="mpesa-box donate-mpesa">
+          <div class="mpesa-header">
+            <span class="mpesa-logo">📱</span>
+            <div>
+              <div class="mpesa-title">Pay via M-Pesa</div>
+              <div class="mpesa-sub">Lipa Na M-Pesa or Send Money</div>
+            </div>
+          </div>
+          <div class="mpesa-numbers" id="donate-mpesa-numbers">
+            <!-- Filled by JS -->
+          </div>
+          <div class="mpesa-steps">
+            <div class="mpesa-step"><span class="mstep-num">1</span> Send money or use Lipa na M-Pesa to the details above</div>
+            <div class="mpesa-step"><span class="mstep-num">2</span> Copy the confirmation SMS you receive</div>
+            <div class="mpesa-step"><span class="mstep-num">3</span> Paste it in the form and submit</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Donation Form -->
+      <div class="donate-right">
+        <div class="donate-form-box">
+          <h3 class="form-title">Confirm Your Donation</h3>
+          <form name="donation" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="donate-form">
+            <input type="hidden" name="form-name" value="donation" />
+            <input type="hidden" name="donation-amount" id="hidden-donation-amount" />
+            <p class="hidden"><label>Don't fill this: <input name="bot-field" /></label></p>
+
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" name="donor-name" placeholder="Full name (or Anonymous)" />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="donor-phone" placeholder="07XX XXX XXX" />
+            </div>
+            <div class="form-group">
+              <label>Amount Sent (KES)</label>
+              <input type="number" name="amount-sent" id="amount-sent-field" placeholder="Enter the amount you sent" required />
+            </div>
+            <div class="form-group">
+              <label>M-Pesa Confirmation Code / Full Message <span class="required">*</span></label>
+              <textarea name="mpesa-confirmation" rows="4"
+                placeholder="Paste your M-Pesa confirmation SMS here e.g.&#10;QA12BCD34E Confirmed. KES 500 sent to EAST ASSEMBLY KAG..."
+                required></textarea>
+            </div>
+            <div class="form-group">
+              <label>A note for the team (optional)</label>
+              <textarea name="note" rows="2" placeholder="e.g. God bless Camp Ignite! 🙏"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="donate-submit-btn">
+              ❤️ Confirm Donation
+            </button>
+            <p class="form-note">We'll send a thank-you message to your number. God bless you!</p>
+          </form>
+        </div>
+
+        <!-- Scripture quote -->
+        <div class="scripture-card">
+          <p class="scripture-text">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver."</p>
+          <p class="scripture-ref">— 2 Corinthians 9:7</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Success Modal -->
+<div class="modal-overlay hidden" id="donate-success-modal">
+  <div class="modal">
+    <div class="modal-icon">🙏</div>
+    <h2>Thank You!</h2>
+    <p>Your generous donation to <strong>Camp Ignite 2026</strong> has been received. We'll confirm and reach out to you shortly.</p>
+    <p class="modal-sub">May God bless you abundantly! ❤️🔥</p>
+    <button class="btn btn-primary" onclick="closeDonateModal()">Close</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg" class="logo-svg"><g transform="translate(4,2)"><path d="M20,44 C10,44 4,36 4,28 C4,20 10,14 14,10 C14,18 18,20 18,20 C18,12 22,6 28,2 C26,10 30,16 30,16 C32,10 36,8 38,8 C34,14 36,20 36,26 C36,36 30,44 20,44Z" fill="#FF6B2B"/><path d="M20,42 C14,42 10,36 10,30 C10,24 14,22 16,22 C16,28 20,30 20,30 C20,24 22,20 24,18 C22,24 26,28 26,32 C26,38 24,42 20,42Z" fill="#FFD700"/></g><text x="52" y="28" font-family="Oswald" font-size="24" font-weight="700" fill="#FFFFFF" letter-spacing="2">CAMP IGNITE</text><text x="53" y="42" font-family="Inter" font-size="9" fill="#8BA4C0" letter-spacing="1">EAST ASSEMBLY KAG</text></svg>
+      <div>
+        <div class="footer-title">Camp Ignite Jerseys</div>
+        <div class="footer-sub">East Assembly KAG Church</div>
+      </div>
+    </div>
+    <div class="footer-note">All proceeds fund Camp Ignite 2026 · East Assembly KAG Church</div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="donate.js"></script>
+</body>
+</html>
